@@ -1,13 +1,19 @@
 <template>
-    <ThrownDice />
+    <ThrownDice v-model="dice" />
+    <br />
+    <table v-for="dos in dice">
+        {{ dos }}
+    </table>
+    <br />
+    <ScoreTable></ScoreTable>
 </template>
+
 <script setup>
-import {ref, reactive} from 'vue';
+import {ref} from 'vue';
 import ThrownDice from './components/ThrownDice.vue';
-const dice = ref('');
-const handleDice = newDice => {
-    dice.value = newDice;
-};
-const tableMaker = dice;
+import ScoreTable from './components/ScoreTable.vue';
+
+const dice = ref([]);
 </script>
+
 <style scoped></style>
