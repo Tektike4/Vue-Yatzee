@@ -6,7 +6,7 @@
     </table>
     <br />
     <ScoreTable></ScoreTable>
-    <button @click="frequency">hi</button>
+    <button @click="frequency">test</button>
 </template>
 
 <script setup>
@@ -25,8 +25,6 @@ const frequency = () => {
     }
     console.log(freqObj);
 };
-frequency();
-console.log(freqObj);
 </script>
 
 <style scoped></style>
