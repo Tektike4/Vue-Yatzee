@@ -3,6 +3,7 @@
 </template>
 <script setup>
 const dice = defineModel();
+const emit = defineEmits(['start']);
 
 const throwDice = () => {
     dice.value.length = 0;
@@ -11,6 +12,8 @@ const throwDice = () => {
         let randomNumber = Math.floor(Math.random() * 6 + 1);
         dice.value.push(randomNumber);
     }
+
+    emit('start', 'cool');
 };
 </script>
 <style scoped></style>

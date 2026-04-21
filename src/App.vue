@@ -1,12 +1,11 @@
 <template>
-    <ThrownDice v-model="dice" />
+    <ThrownDice @start="frequency" v-model="dice" />
     <br />
     <table v-for="dos in dice">
         {{ dos }}
     </table>
     <br />
-    <ScoreTable></ScoreTable>
-    <button @click="frequency">test</button>
+    <ScoreTable v-model="freqArray" />
 </template>
 
 <script setup>
@@ -16,14 +15,14 @@ import ScoreTable from './components/ScoreTable.vue';
 
 const dice = ref([]);
 
-const freqObj = {};
+const freqArray = ref([]);
 
 const frequency = () => {
-    for (let i = 0; i < 6; i++) {
-        const amountInArray = dice.value.filter(num => num === i + 1);
-        freqObj[i + 1] = amountInArray.length;
+    for (let i = 1; i < 7; i++) {
+        const amountInArray = dice.value.filter(num => num === i);
+        freqArray.value[i - 1] = amountInArray.length;
     }
-    console.log(freqObj);
+    console.log(freqArray.value);
 };
 </script>
 

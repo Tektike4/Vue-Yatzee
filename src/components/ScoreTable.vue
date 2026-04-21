@@ -1,5 +1,4 @@
 <template>
-    {{ dice }}
     <table>
         <tr>
             <th>Upper Section</th>
@@ -200,13 +199,28 @@
             <td></td>
         </tr>
     </table>
+    <button @click="start">Hi</button>
+    {{ dice }}
+    <div @update:modelValue="start"></div>
 </template>
 <script setup>
-import {ref, reactive, computed} from 'vue';
+import {ref, computed} from 'vue';
 const dice = defineModel();
+const start = () => {
+    upperTotalScore;
+};
+
+const upperTotalScore = computed(() => {
+    let count = 0;
+    for (let i = 1; i < 7; i++) {
+        let counter = dice[i] * i;
+        count += counter;
+    }
+    return dice[2];
+});
 
 const diceOfAKind = computed(() => {
-    for (let I = 1; i < 7; i++) {}
+    for (let i = 1; i < 7; i++) {}
 });
 </script>
 <style scoped></style>
