@@ -216,7 +216,7 @@ const upperTotalScore = computed(() => {
         let counter = dice[i] * i;
         count += counter;
     }
-    return dice[2];
+    return count;
 });
 
 const diceOfAKind = computed(() => {
